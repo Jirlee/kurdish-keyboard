@@ -12,8 +12,11 @@ SESSION="${XDG_SESSION_TYPE:-x11}"
 # Layout file and registry entry (read by libxkbcommon on Wayland and by GNOME/KDE settings).
 install -Dm644 "$SRC_DIR/symbols/ku_custom" "$XKB_DIR/symbols/ku_custom"
 
+# Remove files left by older versions that used the name "ckb_custom".
+rm -f "$XKB_DIR/symbols/ckb_custom" "$BIN_DIR/ckb-keyboard" "$AUTOSTART_DIR/ckb-keyboard.desktop"
+
 RULES_FILE="$XKB_DIR/rules/evdev.xml"
-if [[ -f "$RULES_FILE" ]] && ! grep -q "ku_custom" "$RULES_FILE"; then
+if [[ -f "$RULES_FILE" ]] && ! grep -qE "ku_custom|ckb_custom" "$RULES_FILE"; then
     echo "Warning: $RULES_FILE already exists and was not changed."
     echo "         Add the <layout> block from rules/evdev.xml to it manually."
 else
