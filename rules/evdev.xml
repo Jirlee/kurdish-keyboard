@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xkbConfigRegistry SYSTEM "xkb.dtd">
+<!-- Registers the Kurdish United Keyboard layout so it appears in desktop keyboard settings (GNOME, KDE, ...). -->
+<xkbConfigRegistry version="1.1">
+  <modelList/>
+  <layoutList>
+    <layout>
+      <configItem>
+        <name>ku_custom</name>
+        <shortDescription>ku</shortDescription>
+        <description>KU (United Keyboard: zza, kmr, ckb, hac, sdh, luri, lak)</description>
+        <languageList>
+          <iso639Id>kur</iso639Id>
+        </languageList>
+      </configItem>
+      <variantList>
+        <variant>
+          <configItem>
+            <name>qwertz</name>
+            <description>KU (United Keyboard, QWERTZ)</description>
+          </configItem>
+        </variant>
+      </variantList>
+    </layout>
+  </layoutList>
+  <optionList/>
+</xkbConfigRegistry>

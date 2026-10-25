@@ -1,0 +1,65 @@
+// Kurdish United Keyboard layout for XKB (zza, kmr, ckb, hac, sdh, luri, lak).
+//
+// Phonetic mapping: each letter sits on the Latin key that sounds like it.
+// Level 1 = key, Level 2 = Shift + key.
+//
+// Variants:
+//   basic   - for US QWERTY keyboards (default)
+//   qwertz  - for German QWERTZ keyboards (Y and Z swapped)
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "us(basic)"
+    include "ku_custom(letters)"
+    name[Group1] = "KU (United Keyboard: zza, kmr, ckb, hac, sdh, luri, lak)";
+
+    key <AD06> { [ U06CC, U06CE ] }; // y: ی / ێ
+    key <AB01> { [ U0632, U0698 ] }; // z: ز / ژ
+};
+
+partial alphanumeric_keys
+xkb_symbols "qwertz" {
+    include "de(basic)"
+    include "ku_custom(letters)"
+    name[Group1] = "KU (United Keyboard, QWERTZ)";
+
+    key <AD06> { [ U0632, U0698 ] }; // z: ز / ژ
+    key <AB01> { [ U06CC, U06CE ] }; // y: ی / ێ
+};
+
+hidden partial alphanumeric_keys
+xkb_symbols "letters" {
+    // Top letter row: QWERTY
+    key <AD01> { [ U0642, U0638 ] }; // q: ق / ظ
+    key <AD02> { [ U0648, U06C7 ] }; // w: و / ۇ
+    key <AD03> { [ U06D5, U0629 ] }; // e: ە / ة
+    key <AD04> { [ U0631, U0695 ] }; // r: ر / ڕ
+    key <AD05> { [ U062A, U0637 ] }; // t: ت / ط
+    key <AD07> { [ U0626, U0639 ] }; // u: ئ / ع
+    key <AD08> { [ U06D0, U06CC ] }; // i: ې / ی
+    key <AD09> { [ U06CA, U06C6 ] }; // o: ۊ / ۆ
+    key <AD10> { [ U067E, U062B ] }; // p: پ / ث
+
+    // Home letter row: ASDF
+    key <AC01> { [ U0627, U0622 ] }; // a: ا / آ
+    key <AC02> { [ U0633, U0634 ] }; // s: س / ش
+    key <AC03> { [ U062F, U068E ] }; // d: د / ڎ
+    key <AC04> { [ U0641, U0625 ] }; // f: ف / إ
+    key <AC05> { [ U06AF, U063A ] }; // g: گ / غ
+    key <AC06> { [ U0647, U062D ] }; // h: ه / ح
+    key <AC07> { [ U062C, U0623 ] }; // j: ج / أ
+    key <AC08> { [ U06A9, U0643 ] }; // k: ک / ك
+    key <AC09> { [ U0644, U06B5 ] }; // l: ل / ڵ
+
+    // Bottom letter row: ZXCV
+    key <AB02> { [ U062E, U0636 ] }; // x: خ / ض
+    key <AB03> { [ U0686, U0635 ] }; // c: چ / ص
+    key <AB04> { [ U06CB, U06A4 ] }; // v: ۋ / ڤ
+    key <AB05> { [ U0628, U0649 ] }; // b: ب / ى
+    key <AB06> { [ U0646, U06BC ] }; // n: ن / ڼ
+    key <AB07> { [ U0645, U0640 ] }; // m: م / ـ
+    key <AB08> { [ U060C, comma ] }; // ,: ، / ,
+
+    // Shift + Space = Zero-Width Non-Joiner
+    key <SPCE> { [ space, U200C ] };
+};
